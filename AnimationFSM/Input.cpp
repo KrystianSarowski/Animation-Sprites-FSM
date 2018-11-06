@@ -2,14 +2,15 @@
 
 Input::Input() 
 {
-	m_current = IDLE;
+	m_currentAction = "Idle";
 }
 Input::~Input() {}
 
-void Input::setCurrent(Action a) {
-	m_current = a;
+void Input::setCurrent(std::string t_currentAction) 
+{
+	m_currentAction = t_currentAction;
 }
 
-Input::Action Input::getCurrent() {
-	return m_current;
+std::string Input::getCurrent() {
+	return m_currentAction;
 }

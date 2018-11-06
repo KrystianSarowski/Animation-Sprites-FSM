@@ -1,23 +1,18 @@
 #ifndef INPUT_H
 #define INPUT_H
+
+#include <string>
+
 class Input
 {
 public:
 	Input();
 	~Input();
 
-	enum Action
-	{
-		IDLE,
-		UP,
-		LEFT,
-		RIGHT
-	};
-
-	void setCurrent(Action);
-	Action getCurrent();
+	void setCurrent(std::string t_currentAction);
+	std::string getCurrent();
 
 private:
-	Action m_current;
+	std::string m_currentAction;
 };
 #endif

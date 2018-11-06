@@ -9,26 +9,30 @@
 using namespace std;
 using namespace sf;
 
-class AnimatedSprite : public Sprite {
+class AnimatedSprite : public Sprite 
+{
 public:
 	AnimatedSprite();
 	AnimatedSprite(const Texture&);
-	AnimatedSprite(const Texture&, const IntRect&);
 	~AnimatedSprite();
 
 	const Clock& getClock();
 	const Time& getTime();
-	const vector<IntRect>& getFrames();
-	const IntRect& getFrame(int);
-	void addFrame(IntRect&);
-	const int getCurrentFrame();
+	const IntRect getCurrentFrame();
 	void update();
+
+	void setFrameRow(int t_newFrameRow);
 	
 private:
+
 	Clock m_clock;
 	Time m_time;
-	vector<IntRect> m_frames;
-	int m_current_frame;
+	IntRect m_currentFrame;
+
+	int m_currentFrameRow;
+	int m_currentFrameCol;
+
+	void setCurrentFrame();
 };
 
 #endif // !ANIMATED_SPRITE_H

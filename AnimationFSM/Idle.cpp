@@ -1,7 +1,7 @@
 #include <Idle.h>
 #include <Jumping.h>
 #include <Climbing.h>
-
+#include <Walking.h>
 #include <string>
 
 void Idle::handleInput() {}
@@ -17,5 +17,12 @@ void Idle::climbing(Animation* a)
 {
 	std::cout << "Idle -> Climbing" << std::endl;
 	a->setCurrent(new Climbing());
+	delete this;
+}
+
+void Idle::walking(Animation * a)
+{
+	std::cout << "Idle -> Walking" << std::endl;
+	a->setCurrent(new Walking());
 	delete this;
 }

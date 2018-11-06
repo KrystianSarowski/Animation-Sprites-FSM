@@ -9,7 +9,9 @@ Player::Player()
 	m_animation.setPrevious(new Idle());
 }
 
-Player::Player(const AnimatedSprite& s) : m_animated_sprite(s)
+Player::Player(const AnimatedSprite& t_sprite) :
+	m_animated_sprite(t_sprite),
+	m_timeBeforeIdle(sf::seconds(0.0f))
 {
 	m_animation.setCurrent(new Idle());
 	m_animation.setPrevious(new Idle());
@@ -19,40 +21,37 @@ Player::~Player() {}
 
 AnimatedSprite& Player::getAnimatedSprite()
 {
-	int frame = m_animated_sprite.getCurrentFrame();
-	m_animated_sprite.setTextureRect(m_animated_sprite.getFrame(frame));
+	m_animated_sprite.setTextureRect(m_animated_sprite.getCurrentFrame());
 	return m_animated_sprite;
 }
 
-void Player::handleInput(Input in)
+void Player::handleInput(Input t_input)
 {
 	DEBUG_MSG("Handle Input");
 
-	switch (in.getCurrent())
+	if ("Walking" == t_input.getCurrent())
 	{
-	case Input::Action::IDLE:
-		//std::cout << "Player Idling" << std::endl;
-		m_animation.idle();
-		break;
-	case Input::Action::UP:
-		//std::cout << "Player Up" << std::endl;
-		m_animation.climbing();
-		break;
-	case Input::Action::LEFT:
-		//std::cout << "Player Left" << std::endl;
-		m_animation.jumping();
-		break;
-	case Input::Action::RIGHT:
-		//std::cout << "Player Idling" << std::endl;
-		m_animation.jumping();
-		break;
-	default:
-		break;
+		m_animation.walking();
+		m_animated_sprite.setFrameRow(1);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
+	else
+	{
+		if (sf::seconds(0.0f) >= m_timeBeforeIdle)
+		{
+			m_animation.idle();
+			m_animated_sprite.setFrameRow(0);
+		}
 	}
 }
 
 void Player::update()
 {
-	//std::cout << "Handle Update" << std::endl;
 	m_animated_sprite.update();
+
+	if (sf::seconds(0.0f) < m_timeBeforeIdle)
+	{
+		m_timeBeforeIdle -= m_clock.getElapsedTime();
+		m_clock.restart();
+	}
 }

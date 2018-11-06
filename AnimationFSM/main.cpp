@@ -21,12 +21,6 @@ int main()
 
 	// Setup Players Default Animated Sprite
 	AnimatedSprite animated_sprite(texture);
-	animated_sprite.addFrame(sf::IntRect(3, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(88, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(173, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(258, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(343, 3, 84, 84));
-	animated_sprite.addFrame(sf::IntRect(428, 3, 84, 84));
 
 	// Setup the Player
 	Player player(animated_sprite);
@@ -48,19 +42,19 @@ int main()
 			case sf::Event::KeyPressed:
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				{
-					input.setCurrent(Input::Action::LEFT);
+					input.setCurrent("Walking");
 				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				{
-					input.setCurrent(Input::Action::RIGHT);
+					input.setCurrent("Walking");
 				}
 				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 				{
-					input.setCurrent(Input::Action::UP);
+					input.setCurrent("Climbing");
 				}
 				break;
 			default:
-				input.setCurrent(Input::Action::IDLE);
+				input.setCurrent("Idle");
 				break;
 			}
 		}

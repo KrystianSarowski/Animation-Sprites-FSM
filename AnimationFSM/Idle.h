@@ -12,6 +12,7 @@ public:
 	void update();
 	void jumping(Animation* a);
 	void climbing(Animation* a);
+	void walking(Animation * a);
 };
 
 #endif // !IDLE_H

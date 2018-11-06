@@ -42,3 +42,9 @@ void Animation::climbing()
 {
 	m_current->climbing(this);
 }
+
+void Animation::walking()
+{
+	m_current->walking(this);
+}
+
