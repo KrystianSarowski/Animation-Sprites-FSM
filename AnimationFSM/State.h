@@ -7,6 +7,7 @@
 #include <Input.h>
 #include <Animation.h>
 #include <Debug.h>
+#include <Windows.h>
 
 class State
 {
@@ -30,6 +31,18 @@ public:
 	virtual void walking(Animation* a)
 	{
 		DEBUG_MSG("State::Walking");
+	}
+	virtual void hammering(Animation* a)
+	{
+		DEBUG_MSG("State::Hammering");
+	}
+	virtual void shoveling(Animation* a)
+	{
+		DEBUG_MSG("State::Shoveling");
+	}
+	virtual void swordsmanship(Animation* a)
+	{
+		DEBUG_MSG("State::Swordsmanship");
 	}
 };
 

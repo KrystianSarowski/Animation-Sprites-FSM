@@ -2,10 +2,21 @@
 #include <Jumping.h>
 #include <Climbing.h>
 #include <Walking.h>
-#include <string>
+#include <Hammering.h>
+#include <Swordsmanship.h>
+#include <Shoveling.h>
 
-void Idle::handleInput() {}
-void Idle::update() {}
+Idle::Idle()
+{
+}
+
+Idle::~Idle()
+{
+}
+
+void Idle::idle(Animation * a)
+{
+}
 
 void Idle::jumping(Animation* a)
 {
@@ -24,5 +35,26 @@ void Idle::walking(Animation * a)
 {
 	std::cout << "Idle -> Walking" << std::endl;
 	a->setCurrent(new Walking());
+	delete this;
+}
+
+void Idle::hammering(Animation * a)
+{
+	std::cout << "Idle -> Walking" << std::endl;
+	a->setCurrent(new Hammering());
+	delete this;
+}
+
+void Idle::shoveling(Animation * a)
+{
+	std::cout << "Idle -> Shoveling" << std::endl;
+	a->setCurrent(new Shoveling());
+	delete this;
+}
+
+void Idle::swordsmanship(Animation * a)
+{
+	std::cout << "Idle -> Swordsmanship" << std::endl;
+	a->setCurrent(new Swordsmanship());
 	delete this;
 }

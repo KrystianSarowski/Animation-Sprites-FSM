@@ -31,31 +31,44 @@ int main()
 	{
 		// Process events
 		sf::Event event;
+
 		while (window.pollEvent(event))
 		{
-			switch (event.type)
+			if (sf::Event::KeyPressed == event.type)
 			{
-			case sf::Event::Closed:
-				// Close window : exit
-				window.close();
-				break;
-			case sf::Event::KeyPressed:
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+				switch (event.key.code)
 				{
+				case sf::Keyboard::Escape:
+					window.close();
+					break;
+				case sf::Keyboard::Left:
 					input.setCurrent("Walking");
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				{
+					break;
+				case sf::Keyboard::Right:
 					input.setCurrent("Walking");
-				}
-				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				{
+					break;
+				case sf::Keyboard::Up:
 					input.setCurrent("Climbing");
+					break;
+				case sf::Keyboard::Down:
+					input.setCurrent("Shoveling");
+					break;
+				case sf::Keyboard::Space:
+					input.setCurrent("Jumping");
+					break;
+				case sf::Keyboard::Z:
+					input.setCurrent("Swordsmanship");
+					break;
+				case sf::Keyboard::X:
+					input.setCurrent("Hammering");
+					break;
+				default:
+					break;
 				}
-				break;
-			default:
+			}
+			else
+			{
 				input.setCurrent("Idle");
-				break;
 			}
 		}
 

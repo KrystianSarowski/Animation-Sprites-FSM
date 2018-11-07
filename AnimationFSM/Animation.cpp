@@ -48,3 +48,18 @@ void Animation::walking()
 	m_current->walking(this);
 }
 
+void Animation::hammering()
+{
+	m_current->hammering(this);
+}
+
+void Animation::shoveling()
+{
+	m_current->shoveling(this);
+}
+
+void Animation::swordsmanship()
+{
+	m_current->swordsmanship(this);
+}
+

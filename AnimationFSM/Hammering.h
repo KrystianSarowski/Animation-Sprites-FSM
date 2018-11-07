@@ -1,13 +1,13 @@
-#ifndef JUMPING_H
-#define JUMPING_H
+#ifndef HAMMERING_H
+#define HAMMERING_H
 
 #include <State.h>
 
-class Jumping : public State
+class Hammering : public State
 {
 public:
-	Jumping();
-	~Jumping();
+	Hammering();
+	~Hammering();
 
 	void idle(Animation* a);
 	void jumping(Animation* a);
@@ -18,4 +18,4 @@ public:
 	void swordsmanship(Animation * a);
 };
 
-#endif // !JUMPING_H
+#endif // !HAMMERING_H

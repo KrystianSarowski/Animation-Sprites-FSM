@@ -35,6 +35,36 @@ void Player::handleInput(Input t_input)
 		m_animated_sprite.setFrameRow(1);
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
+	else if ("Climbing" == t_input.getCurrent())
+	{
+		m_animation.climbing();
+		m_animated_sprite.setFrameRow(2);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
+	else if ("Jumping" == t_input.getCurrent())
+	{
+		m_animation.jumping();
+		m_animated_sprite.setFrameRow(3);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
+	else if ("Hammering" == t_input.getCurrent())
+	{
+		m_animation.hammering();
+		m_animated_sprite.setFrameRow(4);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
+	else if ("Swordsmanship" == t_input.getCurrent())
+	{
+		m_animation.swordsmanship();
+		m_animated_sprite.setFrameRow(5);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
+	else if ("Shoveling" == t_input.getCurrent())
+	{
+		m_animation.shoveling();
+		m_animated_sprite.setFrameRow(6);
+		m_timeBeforeIdle = m_IDLE_COOLDOWN;
+	}
 	else
 	{
 		if (sf::seconds(0.0f) >= m_timeBeforeIdle)
