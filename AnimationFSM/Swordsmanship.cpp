@@ -54,6 +54,4 @@ void Swordsmanship::shoveling(Animation * a)
 
 void Swordsmanship::swordsmanship(Animation * a)
 {
-	std::cout << "No can do right now!" << std::endl;
-	Beep(1000, 500);
 }

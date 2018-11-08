@@ -40,7 +40,7 @@ void Idle::walking(Animation * a)
 
 void Idle::hammering(Animation * a)
 {
-	std::cout << "Idle -> Walking" << std::endl;
+	std::cout << "Idle -> Hammering" << std::endl;
 	a->setCurrent(new Hammering());
 	delete this;
 }

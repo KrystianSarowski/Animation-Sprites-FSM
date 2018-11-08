@@ -53,13 +53,13 @@ int main()
 				case sf::Keyboard::Down:
 					input.setCurrent("Shoveling");
 					break;
-				case sf::Keyboard::Space:
+				case sf::Keyboard::F1:
 					input.setCurrent("Jumping");
 					break;
-				case sf::Keyboard::Z:
+				case sf::Keyboard::F2:
 					input.setCurrent("Swordsmanship");
 					break;
-				case sf::Keyboard::X:
+				case sf::Keyboard::F3:
 					input.setCurrent("Hammering");
 					break;
 				default:
