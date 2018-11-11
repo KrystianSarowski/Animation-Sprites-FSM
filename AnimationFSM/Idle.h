@@ -2,6 +2,7 @@
 #define IDLE_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Idle : public State
 {

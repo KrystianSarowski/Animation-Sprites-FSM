@@ -5,6 +5,7 @@
 #include <SFML\System\Clock.hpp>
 #include <vector>
 #include <Debug.h>
+// @Author Krystian Sarowski
 
 using namespace std;
 using namespace sf;
@@ -25,12 +26,12 @@ public:
 	
 private:
 
-	Clock m_clock;
-	Time m_time;
-	IntRect m_currentFrame;
+	Clock m_clock;				//Clock used to mesure the time that has passed.
+	Time m_time;				//The time that needs to pass before we change frame again.
+	IntRect m_currentFrame;		//The current frame we are displaying from the spirtesheet.
 
-	int m_currentFrameRow;
-	int m_currentFrameCol;
+	int m_currentFrameRow;		//The current row of the frame we are displaying.
+	int m_currentFrameCol;		//The current column of the frame we are displaying.
 
 	void setCurrentFrame();
 };

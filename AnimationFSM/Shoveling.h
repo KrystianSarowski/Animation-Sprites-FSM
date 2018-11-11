@@ -2,6 +2,7 @@
 #define SHOVELING_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Shoveling : public State
 {

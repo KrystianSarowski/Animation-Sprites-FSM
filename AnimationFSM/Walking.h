@@ -2,6 +2,7 @@
 #define WALKING_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Walking : public State
 {

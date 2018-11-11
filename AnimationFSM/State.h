@@ -8,6 +8,7 @@
 #include <Animation.h>
 #include <Debug.h>
 #include <Windows.h>
+// @Author Krystian Sarowski
 
 class State
 {

@@ -2,6 +2,7 @@
 #include <Player.h>
 #include <Idle.h>
 #include <Debug.h>
+// @Author Krystian Sarowski
 
 Player::Player()
 {
@@ -19,12 +20,20 @@ Player::Player(const AnimatedSprite& t_sprite) :
 
 Player::~Player() {}
 
+/// <summary>
+/// @brief Returns a reference to the naimatedSprite of the player.
+/// 
+/// </summary>
 AnimatedSprite& Player::getAnimatedSprite()
 {
 	m_animated_sprite.setTextureRect(m_animated_sprite.getCurrentFrame());
 	return m_animated_sprite;
 }
 
+/// <summary>
+/// @brief Handles the the input recived by the user for the player and makes changes apropertly.
+/// 
+/// </summary>
 void Player::handleInput(Input t_input)
 {
 	DEBUG_MSG("Handle Input");
@@ -32,37 +41,55 @@ void Player::handleInput(Input t_input)
 	if ("Walking" == t_input.getCurrent())
 	{
 		m_animation.walking();
-		m_animated_sprite.setFrameRow(1);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(1);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else if ("Climbing" == t_input.getCurrent())
 	{
 		m_animation.climbing();
-		m_animated_sprite.setFrameRow(2);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(2);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else if ("Jumping" == t_input.getCurrent())
 	{
 		m_animation.jumping();
-		m_animated_sprite.setFrameRow(3);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(3);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else if ("Hammering" == t_input.getCurrent())
 	{
 		m_animation.hammering();
-		m_animated_sprite.setFrameRow(4);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(4);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else if ("Swordsmanship" == t_input.getCurrent())
 	{
 		m_animation.swordsmanship();
-		m_animated_sprite.setFrameRow(5);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(5);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else if ("Shoveling" == t_input.getCurrent())
 	{
 		m_animation.shoveling();
-		m_animated_sprite.setFrameRow(6);
+		if (m_animation.getCurrent() != m_animation.getPrevious())
+		{
+			m_animated_sprite.setFrameRow(6);
+		}
 		m_timeBeforeIdle = m_IDLE_COOLDOWN;
 	}
 	else
@@ -73,8 +100,15 @@ void Player::handleInput(Input t_input)
 			m_animated_sprite.setFrameRow(0);
 		}
 	}
+
+	//Sets the previous state to the current state.
+	m_animation.setPrevious(m_animation.getCurrent());
 }
 
+/// <summary>
+/// @brief Updates the player variables.
+/// 
+/// </summary>
 void Player::update()
 {
 	m_animated_sprite.update();

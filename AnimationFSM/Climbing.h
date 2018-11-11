@@ -2,6 +2,7 @@
 #define CLIMBING_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Climbing : public State
 {

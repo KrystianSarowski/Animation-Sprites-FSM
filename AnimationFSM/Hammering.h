@@ -2,6 +2,7 @@
 #define HAMMERING_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Hammering : public State
 {

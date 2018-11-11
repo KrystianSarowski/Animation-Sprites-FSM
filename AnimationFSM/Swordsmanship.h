@@ -2,6 +2,7 @@
 #define SWORDSMANSHIP_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Swordsmanship : public State
 {

@@ -1,18 +1,16 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
+// @Author Krystian Sarowski
 
 class Animation
 {
 
-	// Please review very good article on Stackoverflow
-	// which covers some solutions to circular dependacies
-	// https://stackoverflow.com/questions/625799/resolve-build-errors-due-to-circular-dependency-amongst-classes
-
 private:
-	class State* m_current; // note order of m_current is 
-							// prior to setCurrent
-	class State* m_previous;
+
+	class State* m_current;		//Pointer to the current state we are in.
+	class State* m_previous;	//Pointer to the previous state we were in.
 public:
+
 	Animation();
 	~Animation();
 	void setCurrent(State* s);
@@ -28,9 +26,6 @@ public:
 	void shoveling();
 	void swordsmanship();
 
-// Try uncommenting and comment the declaration above
-//private:
-//	class State* m_current;
 };
 
 #endif // !ANIMATION_H

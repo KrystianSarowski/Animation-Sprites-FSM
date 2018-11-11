@@ -2,6 +2,7 @@
 #define INPUT_H
 
 #include <string>
+// @Author Krystian Sarowski
 
 class Input
 {
@@ -9,10 +10,11 @@ public:
 	Input();
 	~Input();
 
-	void setCurrent(std::string t_currentAction);
 	std::string getCurrent();
+	void setCurrent(std::string t_currentAction);
 
 private:
-	std::string m_currentAction;
+
+	std::string m_currentAction;	//The cuurent action the user wants to do.
 };
 #endif

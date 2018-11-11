@@ -1,4 +1,5 @@
 #include <Input.h>
+// @Author Krystian Sarowski
 
 Input::Input() 
 {

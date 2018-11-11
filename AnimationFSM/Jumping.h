@@ -2,6 +2,7 @@
 #define JUMPING_H
 
 #include <State.h>
+// @Author Krystian Sarowski
 
 class Jumping : public State
 {

@@ -5,6 +5,7 @@
 #include <Hammering.h>
 #include <Swordsmanship.h>
 #include <Shoveling.h>
+// @Author Krystian Sarowski
 
 Jumping::Jumping()
 {
